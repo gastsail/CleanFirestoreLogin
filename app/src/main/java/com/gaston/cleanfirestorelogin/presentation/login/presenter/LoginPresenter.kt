@@ -23,9 +23,9 @@ import com.gaston.cleanfirestorelogin.presentation.login.LoginContract
 /**
  * Created by Gastón Saillén on 04 May 2019
  */
-class LoginPresenter(): LoginContract.LoginPresenter {
+class LoginPresenter() : LoginContract.LoginPresenter {
 
-    var view:LoginContract.LoginView? = null
+    var view: LoginContract.LoginView? = null
 
 
     override fun attachView(view: LoginContract.LoginView) {

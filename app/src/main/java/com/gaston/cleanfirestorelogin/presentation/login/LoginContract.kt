@@ -23,8 +23,8 @@ package com.gaston.cleanfirestorelogin.presentation.login
  */
 interface LoginContract {
 
-    interface LoginView{
-        fun showError(msgError:String)
+    interface LoginView {
+        fun showError(msgError: String)
         fun showProgressBar()
         fun hideProgressBar()
         fun signIn()
@@ -32,11 +32,11 @@ interface LoginContract {
         fun navigateToRegister()
     }
 
-    interface LoginPresenter{
-        fun attachView(view:LoginView)
+    interface LoginPresenter {
+        fun attachView(view: LoginView)
         fun dettachView()
-        fun isViewAttached():Boolean
-        fun signInUserWithEmailAndPassword(email:String,password:String)
-        fun checkEmptyFields(email:String,password:String): Boolean
+        fun isViewAttached(): Boolean
+        fun signInUserWithEmailAndPassword(email: String, password: String)
+        fun checkEmptyFields(email: String, password: String): Boolean
     }
 }

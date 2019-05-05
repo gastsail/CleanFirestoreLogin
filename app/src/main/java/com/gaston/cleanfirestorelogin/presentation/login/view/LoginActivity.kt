@@ -30,9 +30,9 @@ import kotlinx.android.synthetic.main.activity_main.*
  * Created by Gastón Saillén on 04 May 2019
  */
 
-class LoginActivity : BaseActivity(),LoginContract.LoginView {
+class LoginActivity : BaseActivity(), LoginContract.LoginView {
 
-    lateinit var presenter:LoginPresenter
+    lateinit var presenter: LoginPresenter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,7 +49,7 @@ class LoginActivity : BaseActivity(),LoginContract.LoginView {
     }
 
     override fun showError(msgError: String) {
-        toast(this,msgError)
+        toast(this, msgError)
     }
 
     override fun showProgressBar() {
@@ -63,10 +63,10 @@ class LoginActivity : BaseActivity(),LoginContract.LoginView {
     override fun signIn() {
         val email = etxt_email.text.toString().trim()
         val password = etxt_password.text.toString().trim()
-        if(presenter.checkEmptyFields(email,password)) {
-            toast(this,"Uno o ambos campos son vacios")
+        if (presenter.checkEmptyFields(email, password)) {
+            toast(this, "Uno o ambos campos son vacios")
         } else {
-            presenter.signInUserWithEmailAndPassword(email,password)
+            presenter.signInUserWithEmailAndPassword(email, password)
         }
 
 
