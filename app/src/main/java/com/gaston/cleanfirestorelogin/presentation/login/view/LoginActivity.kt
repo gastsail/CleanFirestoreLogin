@@ -18,12 +18,15 @@
 
 package com.gaston.cleanfirestorelogin.presentation.login.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.gaston.cleanfirestorelogin.R
 import com.gaston.cleanfirestorelogin.base.BaseActivity
+import com.gaston.cleanfirestorelogin.domain.interactor.logininteractor.SignInInteractorImpl
 import com.gaston.cleanfirestorelogin.presentation.login.LoginContract
 import com.gaston.cleanfirestorelogin.presentation.login.presenter.LoginPresenter
+import com.gaston.cleanfirestorelogin.presentation.main.view.MainActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -34,10 +37,9 @@ class LoginActivity : BaseActivity(), LoginContract.LoginView {
 
     lateinit var presenter: LoginPresenter
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        presenter = LoginPresenter()
+        presenter = LoginPresenter(SignInInteractorImpl())
         presenter.attachView(this)
         btn_signIn.setOnClickListener {
             signIn()
@@ -63,17 +65,13 @@ class LoginActivity : BaseActivity(), LoginContract.LoginView {
     override fun signIn() {
         val email = etxt_email.text.toString().trim()
         val password = etxt_password.text.toString().trim()
-        if (presenter.checkEmptyFields(email, password)) {
-            toast(this, "Uno o ambos campos son vacios")
-        } else {
-            presenter.signInUserWithEmailAndPassword(email, password)
-        }
-
-
+        if (presenter.checkEmptyFields(email, password)) toast(this, "Uno o ambos campos son vacios")
+        else
+        presenter.signInUserWithEmailAndPassword(email, password)
     }
 
     override fun navigateToMain() {
-        //startActivity(Intent(this,MainActivity::class.java))
+        startActivity(Intent(this, MainActivity::class.java))
     }
 
     override fun navigateToRegister() {

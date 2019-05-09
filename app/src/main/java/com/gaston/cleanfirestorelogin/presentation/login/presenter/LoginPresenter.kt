@@ -18,14 +18,20 @@
 
 package com.gaston.cleanfirestorelogin.presentation.login.presenter
 
+import com.gaston.cleanfirestorelogin.domain.interactor.logininteractor.SignInInteractor
 import com.gaston.cleanfirestorelogin.presentation.login.LoginContract
 
 /**
  * Created by Gastón Saillén on 04 May 2019
  */
-class LoginPresenter() : LoginContract.LoginPresenter {
+class LoginPresenter(signInInteractor:SignInInteractor) : LoginContract.LoginPresenter {
 
     var view: LoginContract.LoginView? = null
+    var signInInteractor: SignInInteractor? = null
+
+    init {
+        this.signInInteractor = signInInteractor
+    }
 
 
     override fun attachView(view: LoginContract.LoginView) {
@@ -42,7 +48,22 @@ class LoginPresenter() : LoginContract.LoginPresenter {
 
     override fun signInUserWithEmailAndPassword(email: String, password: String) {
         view?.showProgressBar()
-        view?.showError("HOLA DESDE PRESENTER.")
+        signInInteractor?.signInWithEmailAndPassword(email,password,object: SignInInteractor.SigninCallback{
+
+            override fun onSignInSuccess() {
+                if(isViewAttached()){
+                    view?.hideProgressBar()
+                    view?.navigateToMain()
+                }
+            }
+
+            override fun onSignInFailure(errorMsg: String) {
+                if(isViewAttached()){
+                    view?.hideProgressBar()
+                    view?.showError(errorMsg)
+                }
+            }
+        })
 
     }
 

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CleanFirestoreLogin</string>
+    <string name="clean_firestore_login">CLEAN FIRESTORE LOGIN</string>
 </resources>
