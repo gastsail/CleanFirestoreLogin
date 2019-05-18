@@ -35,7 +35,7 @@ interface RegisterContract {
         fun attachView(view:RegisterView)
         fun isViewAttached():Boolean
         fun detachView()
-        fun checkEmptyEmailAndName(fullname:String,email:String):Boolean
+        fun checkEmptyName(fullname:String):Boolean
         fun checkValidEmail(email:String):Boolean
         fun checkEmptyPasswords(pw1:String,pw2:String):Boolean
         fun checkPasswordsMatch(pw1:String,pw2:String):Boolean

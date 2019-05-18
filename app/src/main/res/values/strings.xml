@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">CleanFirestoreLogin</string>
     <string name="clean_firestore_login">CLEAN FIRESTORE LOGIN</string>
+    <string name="full_name">Full Name</string>
+    <string name="e_mail">E-mail</string>
+    <string name="password">password</string>
+    <string name="confirm_password">confirm password</string>
+    <string name="signup">Signup</string>
+    <string name="not_an_account_yet_register">Not an account yet ? Register</string>
 </resources>

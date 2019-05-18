@@ -27,6 +27,7 @@ import com.gaston.cleanfirestorelogin.domain.interactor.logininteractor.SignInIn
 import com.gaston.cleanfirestorelogin.presentation.login.LoginContract
 import com.gaston.cleanfirestorelogin.presentation.login.presenter.LoginPresenter
 import com.gaston.cleanfirestorelogin.presentation.main.view.MainActivity
+import com.gaston.cleanfirestorelogin.presentation.registro.view.SignUpActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -43,6 +44,10 @@ class LoginActivity : BaseActivity(), LoginContract.LoginView {
         presenter.attachView(this)
         btn_signIn.setOnClickListener {
             signIn()
+        }
+
+        txt_register.setOnClickListener {
+            navigateToRegister()
         }
     }
 
@@ -77,7 +82,17 @@ class LoginActivity : BaseActivity(), LoginContract.LoginView {
     }
 
     override fun navigateToRegister() {
-        //startActivity(Intent(this,RegisterActivity::class.java))
+        startActivity(Intent(this, SignUpActivity::class.java))
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.dettachView()
+    }
+
+    override fun onDetachedFromWindow() {
+        super.onDetachedFromWindow()
+        presenter.dettachView()
     }
 
 }

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "617274524894",
+    "firebase_url": "https://cleanfirestorelogin.firebaseio.com",
+    "project_id": "cleanfirestorelogin",
+    "storage_bucket": "cleanfirestorelogin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:617274524894:android:b56c832b57bc8417",
+        "android_client_info": {
+          "package_name": "com.gaston.cleanfirestorelogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "617274524894-nqb7bqnc7s4h9bpg19pglem08uf1lrkp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gaston.cleanfirestorelogin",
+            "certificate_hash": "f3fca01bcf99ea50de12b817b688e9e83b348cf1"
+          }
+        },
+        {
+          "client_id": "617274524894-secl5l5ivmendb9n6496t516e0adi88u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiVVjshBV8MQNlI91L6p6P_Os0uIC_heY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "617274524894-secl5l5ivmendb9n6496t516e0adi88u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
