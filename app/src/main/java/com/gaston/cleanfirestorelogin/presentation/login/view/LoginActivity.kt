@@ -55,7 +55,7 @@ class LoginActivity : BaseActivity(), LoginContract.LoginView {
         return R.layout.activity_main
     }
 
-    override fun showError(msgError: String) {
+    override fun showError(msgError: String?) {
         toast(this, msgError)
     }
 
@@ -88,11 +88,13 @@ class LoginActivity : BaseActivity(), LoginContract.LoginView {
     override fun onDestroy() {
         super.onDestroy()
         presenter.dettachView()
+        presenter.dettachJob()
     }
 
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
         presenter.dettachView()
+        presenter.dettachJob()
     }
 
 }

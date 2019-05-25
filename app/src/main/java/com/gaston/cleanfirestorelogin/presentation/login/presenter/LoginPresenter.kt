@@ -20,14 +20,21 @@ package com.gaston.cleanfirestorelogin.presentation.login.presenter
 
 import com.gaston.cleanfirestorelogin.domain.interactor.logininteractor.SignInInteractor
 import com.gaston.cleanfirestorelogin.presentation.login.LoginContract
+import com.gaston.cleanfirestorelogin.presentation.login.exceptions.FirebaseLoginException
+import kotlinx.coroutines.*
+import kotlin.coroutines.CoroutineContext
 
 /**
  * Created by Gastón Saillén on 04 May 2019
  */
-class LoginPresenter(signInInteractor:SignInInteractor) : LoginContract.LoginPresenter {
+class LoginPresenter(signInInteractor: SignInInteractor) : LoginContract.LoginPresenter, CoroutineScope {
 
     var view: LoginContract.LoginView? = null
     var signInInteractor: SignInInteractor? = null
+
+    private val job = Job()
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.Main + job
 
     init {
         this.signInInteractor = signInInteractor
@@ -42,28 +49,36 @@ class LoginPresenter(signInInteractor:SignInInteractor) : LoginContract.LoginPre
         view = null
     }
 
+    override fun dettachJob() {
+        coroutineContext.cancel()
+    }
+
     override fun isViewAttached(): Boolean {
         return view != null
     }
 
     override fun signInUserWithEmailAndPassword(email: String, password: String) {
-        view?.showProgressBar()
-        signInInteractor?.signInWithEmailAndPassword(email,password,object: SignInInteractor.SigninCallback{
 
-            override fun onSignInSuccess() {
-                if(isViewAttached()){
+        launch {
+            view?.showProgressBar()
+
+            try{
+                signInInteractor?.signInWithEmailAndPassword(email, password)
+
+                if (isViewAttached()) {
                     view?.hideProgressBar()
                     view?.navigateToMain()
                 }
-            }
 
-            override fun onSignInFailure(errorMsg: String) {
+            } catch (e:FirebaseLoginException){
+
                 if(isViewAttached()){
+                    view?.showError(e.message)
                     view?.hideProgressBar()
-                    view?.showError(errorMsg)
                 }
+
             }
-        })
+        }
 
     }
 

@@ -45,7 +45,7 @@ abstract class BaseActivity : AppCompatActivity() {
     @LayoutRes
     abstract fun getLayout(): Int
 
-    fun Context.toast(context: Context = applicationContext, message: String, duration: Int = Toast.LENGTH_SHORT) {
+    fun Context.toast(context: Context = applicationContext, message: String?, duration: Int = Toast.LENGTH_SHORT) {
         Toast.makeText(context, message, duration).show()
     }
 

@@ -23,10 +23,5 @@ package com.gaston.cleanfirestorelogin.domain.interactor.logininteractor
  */
 interface SignInInteractor {
 
-    interface SigninCallback{
-        fun onSignInSuccess()
-        fun onSignInFailure(errorMsg:String)
-    }
-
-    fun signInWithEmailAndPassword(email:String,password:String,listener:SigninCallback)
+    suspend fun signInWithEmailAndPassword(email:String,password:String)
 }

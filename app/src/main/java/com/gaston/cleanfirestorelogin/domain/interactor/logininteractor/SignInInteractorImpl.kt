@@ -18,21 +18,23 @@
 
 package com.gaston.cleanfirestorelogin.domain.interactor.logininteractor
 
+import com.gaston.cleanfirestorelogin.presentation.login.exceptions.FirebaseLoginException
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
 
 /**
  * Created by Gastón Saillén on 09 May 2019
  */
 class SignInInteractorImpl: SignInInteractor {
 
-    override fun signInWithEmailAndPassword(email: String, password: String,
-        listener: SignInInteractor.SigninCallback) {
-
+    override suspend fun signInWithEmailAndPassword(email: String, password: String): Unit = suspendCancellableCoroutine  { continuation ->
         FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password).addOnCompleteListener {
             if(it.isSuccessful){
-                listener.onSignInSuccess()
+                continuation.resume(Unit)
             }else{
-                listener.onSignInFailure(it.exception?.message!!)
+                continuation.resumeWithException(FirebaseLoginException(it.exception?.message))
             }
         }
 
