@@ -16,7 +16,7 @@
  *
  */
 
-package com.gaston.cleanfirestorelogin.domain.interactor.registerinteractor
+package com.gaston.cleanfirestorelogin.domain.interactor.auth.registerinteractor
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest

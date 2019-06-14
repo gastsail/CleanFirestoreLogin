@@ -16,11 +16,11 @@
  *
  */
 
-package com.gaston.cleanfirestorelogin.presentation.login.presenter
+package com.gaston.cleanfirestorelogin.presentation.auth.login.presenter
 
-import com.gaston.cleanfirestorelogin.domain.interactor.logininteractor.SignInInteractor
-import com.gaston.cleanfirestorelogin.presentation.login.LoginContract
-import com.gaston.cleanfirestorelogin.presentation.login.exceptions.FirebaseLoginException
+import com.gaston.cleanfirestorelogin.domain.interactor.auth.logininteractor.SignInInteractor
+import com.gaston.cleanfirestorelogin.presentation.auth.login.LoginContract
+import com.gaston.cleanfirestorelogin.presentation.auth.login.exceptions.FirebaseLoginException
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 

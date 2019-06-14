@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.registro.view.SignUpActivity">
+        tools:context=".presentation.auth.registro.view.SignUpActivity">
 
     <EditText
             android:layout_width="match_parent"

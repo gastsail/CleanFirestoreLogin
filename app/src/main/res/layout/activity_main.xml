@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.login.loginView.LoginActivity">
+        tools:context=".presentation.auth.login.view.LoginActivity">
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -40,9 +40,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/progressBar_signIn"
             android:visibility="gone"
+            android:elevation="3dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/etxt_password"/>
+            android:layout_marginTop="76dp" app:layout_constraintTop_toBottomOf="@+id/etxt_password"
+            app:layout_constraintHorizontal_bias="0.498"/>
     <TextView
             android:text="@string/not_an_account_yet_register"
             android:layout_width="wrap_content"
@@ -50,4 +52,12 @@
             android:id="@+id/txt_register" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
             android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/btn_signIn"/>
+    <TextView
+            android:text="Forgot your password ?"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:id="@+id/txt_password_recover" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/etxt_password"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

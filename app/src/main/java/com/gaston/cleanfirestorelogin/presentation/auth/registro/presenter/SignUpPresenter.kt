@@ -1,8 +1,8 @@
-package com.gaston.cleanfirestorelogin.presentation.registro.presenter
+package com.gaston.cleanfirestorelogin.presentation.auth.registro.presenter
 
 import androidx.core.util.PatternsCompat
-import com.gaston.cleanfirestorelogin.domain.interactor.registerinteractor.SignUpInteractor
-import com.gaston.cleanfirestorelogin.presentation.registro.RegisterContract
+import com.gaston.cleanfirestorelogin.domain.interactor.auth.registerinteractor.SignUpInteractor
+import com.gaston.cleanfirestorelogin.presentation.auth.registro.RegisterContract
 
 /**
  * Created by Gastón Saillén on 18 May 2019

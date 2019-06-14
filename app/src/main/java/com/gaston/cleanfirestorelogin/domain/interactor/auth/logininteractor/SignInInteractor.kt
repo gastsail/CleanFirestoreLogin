@@ -16,17 +16,12 @@
  *
  */
 
-package com.gaston.cleanfirestorelogin.domain.interactor.registerinteractor
+package com.gaston.cleanfirestorelogin.domain.interactor.auth.logininteractor
 
 /**
- * Created by Gastón Saillén on 18 May 2019
+ * Created by Gastón Saillén on 09 May 2019
  */
-interface SignUpInteractor {
+interface SignInInteractor {
 
-    interface RegisterCallback{
-        fun onRegisterSuccess()
-        fun onRegisterFailure(errorMsg:String)
-    }
-
-    fun signUp(fullname:String,email:String,password:String,listener:RegisterCallback)
+    suspend fun signInWithEmailAndPassword(email:String,password:String)
 }

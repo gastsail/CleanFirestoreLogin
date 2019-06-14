@@ -16,7 +16,7 @@
  *
  */
 
-package com.gaston.cleanfirestorelogin.presentation.login
+package com.gaston.cleanfirestorelogin.presentation.auth.login
 
 /**
  * Created by Gastón Saillén on 04 May 2019
@@ -30,6 +30,7 @@ interface LoginContract {
         fun signIn()
         fun navigateToMain()
         fun navigateToRegister()
+        fun navigateToPasswordRecover()
     }
 
     interface LoginPresenter {

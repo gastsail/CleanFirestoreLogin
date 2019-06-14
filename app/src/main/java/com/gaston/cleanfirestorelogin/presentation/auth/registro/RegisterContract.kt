@@ -16,7 +16,7 @@
  *
  */
 
-package com.gaston.cleanfirestorelogin.presentation.registro
+package com.gaston.cleanfirestorelogin.presentation.auth.registro
 
 /**
  * Created by Gastón Saillén on 13 May 2019

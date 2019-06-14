@@ -16,9 +16,9 @@
  *
  */
 
-package com.gaston.cleanfirestorelogin.domain.interactor.logininteractor
+package com.gaston.cleanfirestorelogin.domain.interactor.auth.logininteractor
 
-import com.gaston.cleanfirestorelogin.presentation.login.exceptions.FirebaseLoginException
+import com.gaston.cleanfirestorelogin.presentation.auth.login.exceptions.FirebaseLoginException
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlin.coroutines.resume

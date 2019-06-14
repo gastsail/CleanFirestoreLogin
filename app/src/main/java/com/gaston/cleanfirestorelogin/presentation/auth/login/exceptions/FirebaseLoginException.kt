@@ -1,4 +1,4 @@
-package com.gaston.cleanfirestorelogin.presentation.login.exceptions
+package com.gaston.cleanfirestorelogin.presentation.auth.login.exceptions
 
 /**
  * Created by Gastón Saillén on 24 May 2019

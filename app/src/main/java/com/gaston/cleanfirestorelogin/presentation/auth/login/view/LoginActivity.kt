@@ -16,18 +16,19 @@
  *
  */
 
-package com.gaston.cleanfirestorelogin.presentation.login.view
+package com.gaston.cleanfirestorelogin.presentation.auth.login.view
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.gaston.cleanfirestorelogin.R
 import com.gaston.cleanfirestorelogin.base.BaseActivity
-import com.gaston.cleanfirestorelogin.domain.interactor.logininteractor.SignInInteractorImpl
-import com.gaston.cleanfirestorelogin.presentation.login.LoginContract
-import com.gaston.cleanfirestorelogin.presentation.login.presenter.LoginPresenter
+import com.gaston.cleanfirestorelogin.domain.interactor.auth.logininteractor.SignInInteractorImpl
+import com.gaston.cleanfirestorelogin.presentation.auth.login.LoginContract
+import com.gaston.cleanfirestorelogin.presentation.auth.login.presenter.LoginPresenter
+import com.gaston.cleanfirestorelogin.presentation.auth.passwordrecover.view.PasswordRecoverActivity
 import com.gaston.cleanfirestorelogin.presentation.main.view.MainActivity
-import com.gaston.cleanfirestorelogin.presentation.registro.view.SignUpActivity
+import com.gaston.cleanfirestorelogin.presentation.auth.registro.view.SignUpActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -49,6 +50,10 @@ class LoginActivity : BaseActivity(), LoginContract.LoginView {
         txt_register.setOnClickListener {
             navigateToRegister()
         }
+
+        txt_password_recover.setOnClickListener {
+            navigateToPasswordRecover()
+        }
     }
 
     override fun getLayout(): Int {
@@ -61,10 +66,12 @@ class LoginActivity : BaseActivity(), LoginContract.LoginView {
 
     override fun showProgressBar() {
         progressBar_signIn.visibility = View.VISIBLE
+        btn_signIn.visibility = View.GONE
     }
 
     override fun hideProgressBar() {
         progressBar_signIn.visibility = View.GONE
+        btn_signIn.visibility = View.VISIBLE
     }
 
     override fun signIn() {
@@ -83,6 +90,11 @@ class LoginActivity : BaseActivity(), LoginContract.LoginView {
 
     override fun navigateToRegister() {
         startActivity(Intent(this, SignUpActivity::class.java))
+    }
+
+    override fun navigateToPasswordRecover() {
+        startActivity(Intent(this, PasswordRecoverActivity::class.java))
+
     }
 
     override fun onDestroy() {

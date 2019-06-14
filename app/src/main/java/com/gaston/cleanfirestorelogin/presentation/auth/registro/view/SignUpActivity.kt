@@ -16,17 +16,17 @@
  *
  */
 
-package com.gaston.cleanfirestorelogin.presentation.registro.view
+package com.gaston.cleanfirestorelogin.presentation.auth.registro.view
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.gaston.cleanfirestorelogin.R
 import com.gaston.cleanfirestorelogin.base.BaseActivity
-import com.gaston.cleanfirestorelogin.domain.interactor.registerinteractor.SignUpInteractorImpl
+import com.gaston.cleanfirestorelogin.domain.interactor.auth.registerinteractor.SignUpInteractorImpl
 import com.gaston.cleanfirestorelogin.presentation.main.view.MainActivity
-import com.gaston.cleanfirestorelogin.presentation.registro.RegisterContract
-import com.gaston.cleanfirestorelogin.presentation.registro.presenter.SignUpPresenter
+import com.gaston.cleanfirestorelogin.presentation.auth.registro.RegisterContract
+import com.gaston.cleanfirestorelogin.presentation.auth.registro.presenter.SignUpPresenter
 import kotlinx.android.synthetic.main.activity_register.*
 
 class SignUpActivity : BaseActivity(),RegisterContract.RegisterView {

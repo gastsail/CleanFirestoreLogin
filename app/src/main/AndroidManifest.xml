@@ -11,11 +11,13 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".presentation.registro.view.SignUpActivity">
+        <activity android:name=".presentation.auth.passwordrecover.view.PasswordRecoverActivity">
+        </activity>
+        <activity android:name=".presentation.auth.registro.view.SignUpActivity">
         </activity>
         <activity android:name=".presentation.main.view.MainActivity">
         </activity>
-        <activity android:name=".presentation.login.view.LoginActivity">
+        <activity android:name=".presentation.auth.login.view.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <action android:name="android.intent.action.VIEW"/>
