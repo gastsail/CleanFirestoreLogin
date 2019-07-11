@@ -15,33 +15,35 @@
  *  * limitations under the License.
  *
  */
-
 package com.gaston.cleanfirestorelogin.presentation.auth.login.view
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.gaston.cleanfirestorelogin.CleanFirestoreLoginApp
 import com.gaston.cleanfirestorelogin.R
 import com.gaston.cleanfirestorelogin.base.BaseActivity
-import com.gaston.cleanfirestorelogin.domain.interactor.auth.logininteractor.SignInInteractorImpl
 import com.gaston.cleanfirestorelogin.presentation.auth.login.LoginContract
-import com.gaston.cleanfirestorelogin.presentation.auth.login.presenter.LoginPresenter
+import com.gaston.cleanfirestorelogin.presentation.auth.login.presenter.SignInPresenter
 import com.gaston.cleanfirestorelogin.presentation.auth.passwordrecover.view.PasswordRecoverActivity
 import com.gaston.cleanfirestorelogin.presentation.main.view.MainActivity
 import com.gaston.cleanfirestorelogin.presentation.auth.registro.view.SignUpActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
+
 
 /**
  * Created by Gastón Saillén on 04 May 2019
  */
 
-class LoginActivity : BaseActivity(), LoginContract.LoginView {
+class SignInActivity : BaseActivity(), LoginContract.LoginView {
 
-    lateinit var presenter: LoginPresenter
+    @Inject
+    lateinit var presenter: SignInPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        presenter = LoginPresenter(SignInInteractorImpl())
+        (application as CleanFirestoreLoginApp).getAppComponent()?.inject(this)
         presenter.attachView(this)
         btn_signIn.setOnClickListener {
             signIn()

@@ -3,21 +3,23 @@ package com.gaston.cleanfirestorelogin.presentation.auth.passwordrecover.view
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.gaston.cleanfirestorelogin.CleanFirestoreLoginApp
 import com.gaston.cleanfirestorelogin.R
 import com.gaston.cleanfirestorelogin.base.BaseActivity
-import com.gaston.cleanfirestorelogin.domain.interactor.auth.passwordrecoverinteractor.PasswordRecoverImpl
-import com.gaston.cleanfirestorelogin.presentation.auth.login.view.LoginActivity
+import com.gaston.cleanfirestorelogin.presentation.auth.login.view.SignInActivity
 import com.gaston.cleanfirestorelogin.presentation.auth.passwordrecover.PasswordRecoverContract
 import com.gaston.cleanfirestorelogin.presentation.auth.passwordrecover.presenter.PasswordRecoverPresenter
 import kotlinx.android.synthetic.main.activity_password_recover.*
+import javax.inject.Inject
 
 class PasswordRecoverActivity : BaseActivity(), PasswordRecoverContract.PasswordRecoverView {
 
+    @Inject
     lateinit var presenter: PasswordRecoverPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        presenter = PasswordRecoverPresenter(PasswordRecoverImpl())
+        (application as CleanFirestoreLoginApp).getAppComponent()?.inject(this)
         presenter.attachView(this)
         btn_recover_pw.setOnClickListener {
             recoverPassword()
@@ -48,7 +50,7 @@ class PasswordRecoverActivity : BaseActivity(), PasswordRecoverContract.Password
     }
 
     override fun navigateToLogin() {
-        startActivity(Intent(this,LoginActivity::class.java))
+        startActivity(Intent(this,SignInActivity::class.java))
         toast(this,"Recover E-mail sent")
         finish()
     }

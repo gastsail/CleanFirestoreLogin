@@ -21,6 +21,7 @@ package com.gaston.cleanfirestorelogin.presentation.auth.registro.view
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.gaston.cleanfirestorelogin.CleanFirestoreLoginApp
 import com.gaston.cleanfirestorelogin.R
 import com.gaston.cleanfirestorelogin.base.BaseActivity
 import com.gaston.cleanfirestorelogin.domain.interactor.auth.registerinteractor.SignUpInteractorImpl
@@ -28,14 +29,16 @@ import com.gaston.cleanfirestorelogin.presentation.main.view.MainActivity
 import com.gaston.cleanfirestorelogin.presentation.auth.registro.RegisterContract
 import com.gaston.cleanfirestorelogin.presentation.auth.registro.presenter.SignUpPresenter
 import kotlinx.android.synthetic.main.activity_register.*
+import javax.inject.Inject
 
 class SignUpActivity : BaseActivity(),RegisterContract.RegisterView {
 
-    lateinit var presenter:SignUpPresenter
+    @Inject
+    lateinit var presenter: SignUpPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        presenter = SignUpPresenter(SignUpInteractorImpl())
+        (application as CleanFirestoreLoginApp).getAppComponent()?.inject(this)
         presenter.attachView(this)
 
         btn_signUp.setOnClickListener {

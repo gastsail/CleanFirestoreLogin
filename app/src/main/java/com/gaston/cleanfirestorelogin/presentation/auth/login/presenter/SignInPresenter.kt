@@ -22,24 +22,19 @@ import com.gaston.cleanfirestorelogin.domain.interactor.auth.logininteractor.Sig
 import com.gaston.cleanfirestorelogin.presentation.auth.login.LoginContract
 import com.gaston.cleanfirestorelogin.presentation.auth.login.exceptions.FirebaseLoginException
 import kotlinx.coroutines.*
+import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
 
 /**
  * Created by Gastón Saillén on 04 May 2019
  */
-class LoginPresenter(signInInteractor: SignInInteractor) : LoginContract.LoginPresenter, CoroutineScope {
+class SignInPresenter @Inject constructor(private val signInInteractor: SignInInteractor) : LoginContract.LoginPresenter, CoroutineScope {
 
     var view: LoginContract.LoginView? = null
-    var signInInteractor: SignInInteractor? = null
 
     private val job = Job()
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main + job
-
-    init {
-        this.signInInteractor = signInInteractor
-    }
-
 
     override fun attachView(view: LoginContract.LoginView) {
         this.view = view
@@ -63,7 +58,7 @@ class LoginPresenter(signInInteractor: SignInInteractor) : LoginContract.LoginPr
             view?.showProgressBar()
 
             try{
-                signInInteractor?.signInWithEmailAndPassword(email, password)
+                signInInteractor.signInWithEmailAndPassword(email, password)
 
                 if (isViewAttached()) {
                     view?.hideProgressBar()

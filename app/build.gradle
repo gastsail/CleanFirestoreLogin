@@ -1,9 +1,7 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
-
 apply plugin: 'com.google.gms.google-services'
 
 android {
@@ -35,6 +33,11 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.1.0-alpha05'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.2.1'
+
+    //Dagger
+    implementation 'com.google.dagger:dagger-android:2.20'
+    kapt 'com.google.dagger:dagger-android-processor:2.20'
+    kapt 'com.google.dagger:dagger-compiler:2.22.1'
 
     //Firebase dependency
     implementation 'com.google.firebase:firebase-auth:17.0.0'
