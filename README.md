@@ -1,2 +1,2 @@
 # CleanFirestoreLogin
-[WIP] Login and Register with Clean Architecture
+Login and Register with Clean Architecture
